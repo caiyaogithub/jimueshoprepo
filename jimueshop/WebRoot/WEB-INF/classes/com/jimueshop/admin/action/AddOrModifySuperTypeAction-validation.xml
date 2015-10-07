@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE validators SYSTEM 
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name = "superType" >
+		<field-validator type="visitor" short-circuit="true">
+			<param name="context">superTypeContext</param>
+			<param name="appendPrefix">false</param>
+			<message>大类的</message>
+		</field-validator>
+	</field>
+	<field name = "operator" >
+		<field-validator type="regex" short-circuit="true">
+			<param name="expression"><![CDATA[((1)|(2))]]></param>
+			<message>操作只能是1，2之间的一个数</message>
+		</field-validator>
+	</field>
+</validators>

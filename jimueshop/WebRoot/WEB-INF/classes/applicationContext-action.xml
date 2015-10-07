@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+	<bean id="QueryAllUserAction" class="com.jimueshop.admin.action.QueryAllUserAction" scope="prototype">
+		<property name="userService" ref="userService" />
+	</bean>
+	
+	<bean id = "DeleteUserAction" class="com.jimueshop.admin.action.DeleteUserAction" scope = "prototype">
+		<property name="userService" ref = "userService" />
+	</bean>
+	
+	<bean id = "ToggleUserStatusAction" class="com.jimueshop.admin.action.ToggleUserStatusAction" scope = "prototype">
+		<property name="userService" ref = "userService" />
+	</bean>
+	
+	<bean id = "QuerySingleUserAction" class="com.jimueshop.admin.action.QuerySingleUserAction" scope = "prototype">
+		<property name="userService" ref = "userService" />
+	</bean>
+	
+	<bean id = "QueryAllOrderItemAction" class="com.jimueshop.admin.action.QueryAllOrderItemAction" scope = "prototype">
+		<property name="orderItemService" ref = "orderItemService" />
+	</bean>
+	
+	<bean id = "DeleteOrderItemAction" class="com.jimueshop.admin.action.DeleteOrderItemAction" scope = "prototype">
+		<property name="orderItemService" ref = "orderItemService" />
+	</bean>
+	
+	<bean id = "QuerySingleOrderItemAction" class="com.jimueshop.admin.action.QuerySingleOrderItemAction" scope = "prototype">
+		<property name="orderItemService" ref = "orderItemService" />
+	</bean>
+	
+	<bean id = "QuerySomeOrderItemAction" class="com.jimueshop.admin.action.QuerySomeOrderItemAction" scope = "prototype">
+		<property name="orderItemService" ref = "orderItemService" />
+	</bean>
+	
+	<bean id = "ChangeOrderItemStatus" class="com.jimueshop.admin.action.ChangeOrderItemStatusAction" scope = "prototype">
+		<property name="orderItemService" ref = "orderItemService" />
+	</bean>
+	
+	<bean id = "QueryAllSuperTypeAction" class="com.jimueshop.admin.action.QueryAllSuperTypeAction" scope = "prototype">
+		<property name="superTypeService" ref = "superTypeService" />
+	</bean>
+	
+	<bean id = "QuerySingleSuperTypeAction" class="com.jimueshop.admin.action.QuerySingleSuperTypeAction" scope = "prototype">
+		<property name="superTypeService" ref = "superTypeService" />
+	</bean>
+	
+	<bean id = "AddOrModifySuperTypeAction" class="com.jimueshop.admin.action.AddOrModifySuperTypeAction" scope = "prototype">
+		<property name="superTypeService" ref = "superTypeService" />
+	</bean>
+	
+	<bean id = "CheckSuperTypeNameAction" class="com.jimueshop.admin.action.CheckSuperTypeNameAction" scope = "prototype">
+		<property name="superTypeService" ref = "superTypeService" />
+	</bean>
+	
+	<bean id = "DeleteSuperTypeAction" class="com.jimueshop.admin.action.DeleteSuperTypeAction" scope = "prototype">
+		<property name="superTypeService" ref = "superTypeService" />
+	</bean>
+	
+	<bean id = "QueryManySubTypeAction" class="com.jimueshop.admin.action.QueryManySubTypeAction" scope = "prototype">
+		<property name="subTypeService" ref = "SubTypeService" />
+	</bean>
+	
+	<bean id = "QuerySingleSubTypeAction" class="com.jimueshop.admin.action.QuerySingleSubTypeAction" scope = "prototype">
+		<property name="subTypeService" ref = "SubTypeService" />
+	</bean>
+	
+	<bean id = "AddOrModifySubTypeAction" class="com.jimueshop.admin.action.AddOrModifySubTypeAction" scope = "prototype">
+		<property name="subTypeService" ref = "SubTypeService" />
+	</bean>
+	
+	<bean id = "DeleteSubTypeAction" class="com.jimueshop.admin.action.DeleteSubTypeAction" scope = "prototype">
+		<property name="subTypeService" ref = "SubTypeService" />
+	</bean>
+	
+	<bean id = "CheckSubTypeNameAction" class="com.jimueshop.admin.action.CheckSubTypeNameAction" scope = "prototype">
+		<property name="subTypeService" ref = "SubTypeService" />
+	</bean>
+	
+	<bean id = "QueryManyAttrAction" class="com.jimueshop.admin.action.QueryManyAttrAction" scope = "prototype">
+		<property name="attrService" ref = "AttrService" />
+	</bean>
+	
+	<bean id = "QuerySingleAttrAction" class="com.jimueshop.admin.action.QuerySingleAttrAction" scope = "prototype">
+		<property name="attrService" ref = "AttrService" />
+	</bean>
+	
+	<bean id = "AddOrModifyAttrAction" class="com.jimueshop.admin.action.AddOrModifyAttrAction" scope = "prototype">
+		<property name="attrService" ref = "AttrService" />
+	</bean>
+	
+	<bean id = "DeleteAttrAction" class="com.jimueshop.admin.action.DeleteAttrAction" scope = "prototype">
+		<property name="attrService" ref = "AttrService" />
+	</bean>
+	
+</beans>

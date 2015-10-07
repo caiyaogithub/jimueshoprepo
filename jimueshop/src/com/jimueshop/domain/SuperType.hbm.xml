@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="property" default-lazy="true" package="com.jimueshop.domain">
+	<class name="SuperType" table="TAB_SUPERTYPE">
+		<id name = "id">
+			<generator class="native" />
+		</id>
+		<property name="typeName" column="TYPE_NAME"/>
+		<list name="subTypes" table="TAB_SUBTYPE" cascade="all" inverse="false" >
+			<key column="SUPERTYPE_ID" />
+			<list-index column="SUBTYPE_INDEX" />
+			<one-to-many class="SubType" />
+		</list>
+		<set name="products" table="TAB_PRODUCT"  cascade="all">
+			<key column="SUPERTYPE_ID" />
+			<one-to-many class="Product" />
+		</set>
+	</class>
+</hibernate-mapping>

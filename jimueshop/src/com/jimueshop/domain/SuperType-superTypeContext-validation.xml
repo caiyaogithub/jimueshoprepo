@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE validators PUBLIC 
+	"-//OpenSymphony Group//XWork Validator 1.0.3//EN"
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+<validators>
+
+	<field name="typeName">
+		<field-validator type="requiredstring" short-circuit="true">
+			<param name="trim">true</param>
+			<message>大类名称必须填</message>
+		</field-validator>
+		<field-validator type="regex"  short-circuit="true" >
+			<param name="expression"><![CDATA[([\u4e00-\u9f5a]{2,5})]]></param>
+			<message>大类名称不符合标准</message>
+		</field-validator>
+	</field>
+	
+</validators>

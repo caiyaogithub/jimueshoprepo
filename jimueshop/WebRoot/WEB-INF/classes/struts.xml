@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<package name="user" namespace="/user" extends="json-default">
+		<global-results>
+				<result name="error" type="json">
+					<param name="includeProperties">result</param>
+				</result>
+				<result name="success" type="json">
+					<param name="includeProperties">result</param>
+				</result>
+				<result name="failure" type="json">
+					<param name="includeProperties">result</param>
+				</result>
+				<result name="input" type="json">
+					<param name="includeProperties">result</param>
+				</result>
+			</global-results>
+			<global-exception-mappings>
+				<exception-mapping result="error" exception="java.lang.Exception" />
+			</global-exception-mappings>
+			
+		<action name="allUser" class="QueryAllUserAction">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					page.*,
+					result
+				</param>
+			</result>
+		</action>
+
+		<action name="toggleUserStatus" class="ToggleUserStatusAction">
+		</action>
+
+		<action name="deleteUser" class="DeleteUserAction">
+		</action>
+
+		<action name="findUserById" class="QuerySingleUserAction">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					user.* , result
+				</param>
+			</result>
+		</action>
+		
+	</package>
+	
+	<package name="orderItem" namespace="/orderItem" extends="json-default">
+
+		<global-results>
+			<result name="error" type="json">
+				<param name="includeProperties">result</param>
+			</result>
+			<result name="success" type="json">
+				<param name="includeProperties">result</param>
+			</result>
+			<result name="failure" type="json">
+				<param name="includeProperties">result</param>
+			</result>
+			<result name="input" type="json">
+				<param name="includeProperties">result</param>
+			</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</global-exception-mappings>
+
+		<action name="listOrderItem" class="QueryAllOrderItemAction">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					page.* ,
+					result
+				</param>
+				<param name="excludeProperties">page.list\[\d+\].order.orderItems ,
+					page.list\[\d+\].user.orders</param>
+			</result>
+		</action>
+		<action name="deleteOrderItem" class="DeleteOrderItemAction">
+		</action>
+
+
+		<action name="findOrderItem" class="QuerySingleOrderItemAction">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					result,orderItem.*
+				</param>
+			</result>
+		</action>
+
+		<action name="findSomeOrderItem" class="QuerySomeOrderItemAction">
+			<result name="success" type="json">
+				<param name="includeProperties">
+					result,page.*
+				</param>
+				<param name="excludeProperties">page.list\[\d+\].order.orderItems ,
+					page.list\[\d+\].user.orders</param>
+			</result>
+		</action>
+
+		<action name="changeOrderItemStatus" class="ChangeOrderItemStatus">
+		</action>
+	</package>
+	<package name="product" namespace="/product" extends="json-default">
+	
+		<global-results>
+			<result name="error" type="json">
+				<param name="includeProperties">result</param>
+			</result>
+			<result name="success" type="json">
+				<param name="includeProperties">result</param>
+			</result>
+			<result name="failure" type="json">
+				<param name="includeProperties">result</param>
+			</result>
+			<result name="input" type="json">
+				<param name="includeProperties">result</param>
+			</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</global-exception-mappings>
+		
+		<action name="allSuperType" class="QueryAllSuperTypeAction">
+			<result name = "success" type = "json">
+				<param name="includeProperties">result , page.* </param>
+				<param name="excludeProperties">page.list\[\d+\].products,page.list\[\d+\].subTypes</param>
+			</result>
+		</action>
+		<action name="singleSuperType" class="QuerySingleSuperTypeAction">
+			<result name = "success" type = "json">
+				<param name="includeProperties">result , superType.* </param>
+				<param name="excludeProperties">superType.subTypes , superType.products</param>
+			</result>
+		</action>
+		
+		<action name="addOrModifySuperType" class="AddOrModifySuperTypeAction">
+		</action>
+		
+		<action name="checkSuperTypeName" class="CheckSuperTypeNameAction">
+		</action>
+		
+		<action name="deleteSuperType" class="DeleteSuperTypeAction">
+		</action>
+		
+		<action name="queryManySubType" class="QueryManySubTypeAction">
+			<result name = "success" type = "json">
+				<param name="includeProperties">result,page.*</param>
+				<param name="excludeProperties">
+				page.list\[\d+\].supertype,
+				page.list\[\d+\].attrs,
+				page.list\[\d+\].products,
+				page.list\[\d+\].ads
+				</param>
+			</result>
+		</action>
+		
+		<action name="querySingleSubType" class="QuerySingleSubTypeAction">
+			<result name = "success" type = "json">
+				<param name="includeProperties">result,subType.*</param>
+				<param name="excludeProperties">
+				subType.supertype,
+				subType.attrs,
+				subType.products,
+				subType.ads
+				</param>
+			</result>
+		</action>
+		
+		<action name="addOrModifySubType" class="AddOrModifySubTypeAction">
+		</action>
+		
+		<action name="deleteSubType" class="DeleteSubTypeAction">
+		</action>
+		
+		<action name="checkSubTypeName" class="CheckSubTypeNameAction">
+		</action>
+		
+		<action name="queryAttrBySubTypeId" class="QueryManyAttrAction">
+			<result name = "success" type = "json">
+				<param name="includeProperties">result,page.*</param>
+				<param name="excludeProperties">
+				page.list\[\d+\].attrItems\[\d+\].products,
+				page.list\[\d+\].attrItems\[\d+\].attr,
+				page.list\[\d+\].subType
+				</param>
+			</result>
+		</action>
+		
+		<action name="singleAttr" class="QuerySingleAttrAction">
+			<result name = "success" type = "json">
+				<param name="includeProperties">result,attr.*</param>
+				<param name="excludeProperties">
+					attr.attrItems\[\d+\].products,
+					attr.attrItems\[\d+\].attr,
+					attr.subType.attrs,
+					attr.subType.products ,
+					attr.subType.ads,
+					attr.subType.superType
+				</param>
+			</result>
+		</action>
+		
+		<action name="addOrModifyAttr" class="AddOrModifyAttrAction">
+		</action>
+		
+		<action name="deleteAttr" class="DeleteAttrAction">
+		</action>
+		
+	</package>
+</struts>

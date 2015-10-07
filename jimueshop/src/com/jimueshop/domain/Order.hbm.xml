@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="property" default-lazy="true" package="com.jimueshop.domain">
+	<class name = "Order" table="TAB_ORDER">
+		<id name = "id" column="ORDER_ID">
+			<generator class="native" />
+		</id>
+		<property name="userName" column = "USER_NAME" />
+		<property name="realName" column = "REAL_NAME" />
+		<property name="address" column = "ADDRESS" />
+		<property name="postcode" column = "POSTCODE" />
+		<property name="phone" column = "PHONE" />
+		<property name="orderDate" column = "ORDER_DATE" />
+		<set name="orderItems" table="TAB_ORDER_ITEM"  cascade="all" lazy="true" >
+			<key column = "ORDER_ID" />
+			<one-to-many class="OrderItem" />
+		</set>
+	</class>
+</hibernate-mapping>

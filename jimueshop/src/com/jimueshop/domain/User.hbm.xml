@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="property" default-lazy="true" package="com.jimueshop.domain">
+	<class name = "User" table="TAB_USER">
+		<id name = "id" column="USER_ID">
+			<generator class="native" />
+		</id>
+		<property name="userName" column = "USER_NAME" />
+		<property name="password" column = "USER_PASSWORD" />
+		<property name="email" column = "USER_EMAIL" />
+		<property name="trueName" column = "TRUE_NAME" />
+		<property name="gender" column = "GENDER" />
+		<property name="birthday" column = "BIRTHDAY" />
+		<property name="address" column = "ADDRESS" />
+		<property name="postCode" column = "POST_CODE" />
+		<property name="phone" column = "PHONE" />
+		<property name="mobile" column = "MOBILE" />
+		<property name="score" column = "SCORE" />
+		<property name="status" column = "USER_STATUS" />
+		<set name="orders" table="TAB_ORDER_ITEM" cascade="all" lazy="false">
+			<key column="USER_ID" />
+			<one-to-many class="OrderItem" />
+		</set>
+	</class>
+</hibernate-mapping>

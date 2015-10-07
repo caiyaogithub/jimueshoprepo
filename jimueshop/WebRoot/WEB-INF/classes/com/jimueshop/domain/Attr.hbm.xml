@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="property" default-lazy="true" package="com.jimueshop.domain">
+	<class name = "Attr" table="TAB_ATTR">
+		<id name = "id">
+			<generator class="native" />
+		</id>
+		<property name="attrName" column="ATTR_NAME" />
+		<many-to-one name="subType" class="SubType" column="SUBTYPE_ID" cascade="none" lazy="false"/>
+		<property name="attrDesc" column="ATTR_DESC" />
+		<set name="attrItems" table="TAB_ATTR_ITEM" cascade="all" lazy="false" inverse="true">
+			<key column="ATTR_ID" />
+			<one-to-many class="AttrItem" />
+		</set>
+	</class>
+</hibernate-mapping>

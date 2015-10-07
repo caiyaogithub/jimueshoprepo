@@ -1,0 +1,4 @@
+2015-9-29 : User类添加status属性，表示该账户使用状态，状态包含： 正常使用，被冻结
+2015-9-30 : 全部关联配置都设置了cascade="all"，并将User（用户）配置中对orders(订单)的关联配置为lazy="false",因为在将Action中的User
+			组装成json字符串时总是出现无法延迟加载的错误，设置这个参数后就关闭了User获取orders的延迟功能
+2015-10-2 ： 将flag属性从Order类转移到OrderItem类

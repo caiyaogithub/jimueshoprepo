@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE validators SYSTEM 
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name = "operator" >
+			<field-validator type="regex">
+				<param name="expression"><![CDATA[((1)|(2))]]></param>
+				<message>操作类型参数必须是1，2其中一值</message>
+			</field-validator>
+	</field>
+</validators>

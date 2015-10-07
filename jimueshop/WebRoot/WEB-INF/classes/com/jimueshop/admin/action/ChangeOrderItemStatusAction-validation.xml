@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="GBK"?>
+<!DOCTYPE validators SYSTEM 
+	"http://www.opensymphony.com/xwork/xwork-validator-1.0.3.dtd">
+<validators>
+	<field name = "status" >
+			<field-validator type="regex">
+				<param name="expression"><![CDATA[((已发货)|(已完成))]]></param>
+				<message>状态参数必须是 已发货 ,已完成 两者中的一个 </message>
+			</field-validator>
+	</field>
+</validators>
