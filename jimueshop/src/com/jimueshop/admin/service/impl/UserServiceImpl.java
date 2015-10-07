@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public void deleteManyUserByIds(List<Integer> idList) {
-		userDao.deleteByProperty( "id" , idList );
+		userDao.deleteByPropertyWithHQL( "id" , idList );
 	}
 	public UserDao getUserDao() {
 		return userDao;

@@ -33,7 +33,7 @@ public class SubTypeServiceImpl implements SubTypeService {
 	}
 	@Override
 	public void deleteManySubTypeByIds(List<Integer> ids) {
-		subTypeDao.deleteByProperty("id", ids ) ;
+		subTypeDao.deleteByPropertyWithHQL("id", ids ) ;
 	}
 	@Override
 	public Page querySomeSubTypeByProperties(int currentPage , Map<String, String> params) {

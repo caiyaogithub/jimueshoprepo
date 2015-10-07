@@ -17,7 +17,7 @@
 		<property name="minPoolSize" value="1"></property>
 		<property name="initialPoolSize" value="1"></property>
 		<property name="maxIdleTime" value="60"></property>
-		<property name="checkoutTimeout" value="2000"></property>
+		<property name="checkoutTimeout" value="2500"></property>
 	</bean>
 	
 	<bean id="sessionFactory"

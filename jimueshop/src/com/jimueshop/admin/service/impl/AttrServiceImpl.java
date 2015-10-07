@@ -33,7 +33,7 @@ public class AttrServiceImpl implements AttrService {
 	}
 	@Override
 	public void deleteManyAttrByIds(List<Integer> ids) {
-		attrDao.deleteByProperty("id", ids ) ;
+		attrDao.deleteByPropertyWithMethod("id", ids ) ;
 	}
 	@Override
 	public Page querySomeAttrByProperties(int currentPage , Map<String, String> params) {

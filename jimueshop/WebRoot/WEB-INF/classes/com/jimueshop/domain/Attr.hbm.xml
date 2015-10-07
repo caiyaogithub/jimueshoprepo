@@ -10,7 +10,7 @@
 		<property name="attrName" column="ATTR_NAME" />
 		<many-to-one name="subType" class="SubType" column="SUBTYPE_ID" cascade="none" lazy="false"/>
 		<property name="attrDesc" column="ATTR_DESC" />
-		<set name="attrItems" table="TAB_ATTR_ITEM" cascade="all" lazy="false" inverse="true">
+		<set name="attrItems" table="TAB_ATTR_ITEM" cascade="all" lazy="false" >
 			<key column="ATTR_ID" />
 			<one-to-many class="AttrItem" />
 		</set>

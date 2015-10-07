@@ -29,7 +29,7 @@ public class SuperTypeServiceImpl implements SuperTypeService {
 	}
 	@Override
 	public void deleteManySuperTypeByIds(List<Integer> ids) {
-		superTypeDao.deleteByProperty("id", ids ) ;
+		superTypeDao.deleteByPropertyWithHQL("id", ids ) ;
 	}
 	@Override
 	public Page querySomeSuperTypeByProperties(int currentPage , Map<String, String> params) {

@@ -218,7 +218,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 	
 	@Override
-	public void deleteByProperty(String propertyName, List<?> value) {
+	public void deleteByPropertyWithHQL(String propertyName, List<?> value) {
 		String inClause = "" ;
 		for(Object o : value ){
 			inClause += String.format("'%s',", o.toString()) ;
@@ -235,6 +235,17 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 				return query.executeUpdate() ;
 			}
 		}) ;
+	}
+	@Override
+	public void deleteByPropertyWithMethod(String propertyName, List values) {
+		
+		List<T> objects = findByProperties(propertyName, values) ;
+		
+		for(T t : objects ){
+			
+			hibernateTemplate.delete(t) ;
+			
+		}
 	}
 	@Override
 	public void updateManyByProperty(String key , List<?> keySet , String propertyName,
@@ -273,13 +284,17 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 	@Override
 	public List<T> findByIds(List<Integer> ids) {
+		return findByProperties( "id" , ids ) ;
+	}
+	@Override
+	public List findByProperties(String propertyName, List<?> values) {
 		String inClause = "" ;
-		for(Object o : ids ){
+		for(Object o : values ){
 			inClause += String.format("'%s',", o.toString()) ;
 		}
 		inClause = inClause.substring(0, inClause.lastIndexOf(",")) ;
 		final String hql = String.format(
-				"from %s where id in ( %s )" , entityClass.getSimpleName() , inClause ) ;
+				"from %s where %s in ( %s )" , entityClass.getSimpleName() , propertyName , inClause ) ;
 		return hibernateTemplate.executeWithNativeSession(new HibernateCallback<List>(){
 			@Override
 			public List doInHibernate(Session session)

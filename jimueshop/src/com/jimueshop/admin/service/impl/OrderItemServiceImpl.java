@@ -29,7 +29,7 @@ public class OrderItemServiceImpl implements OrderItemService {
 	}
 	@Override
 	public void deleteManyOrderItemByIds(List<Integer> ids) {
-		orderItemDao.deleteByProperty("id", ids ) ;
+		orderItemDao.deleteByPropertyWithHQL("id", ids ) ;
 	}
 	@Override
 	public Page querySomeOrderItemByProperties(int currentPage , Map<String, String> params) {

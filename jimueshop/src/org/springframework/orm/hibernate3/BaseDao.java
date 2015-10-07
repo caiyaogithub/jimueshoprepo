@@ -12,11 +12,18 @@ public interface BaseDao<T> {
 	Serializable save(T instance);
 	void delete(T instance);
 	/**
+	 * HQL版，使用HQL版无法级联执行删除
 	 * 参数名为propertyName，值在value集合中的所有数据
 	 * @param propertyName 参数名
 	 * @param value 参数值列表
 	 */
-	void deleteByProperty(String propertyName , List<?> value ) ;
+	void deleteByPropertyWithHQL(String propertyName , List<?> values ) ;
+	/**
+	 * 使用delete方法版，使用delete方法可以执行级联删除，但是执行效率没有使用HQL版效率高
+	 * @param propertyName
+	 * @param value
+	 */
+	void deleteByPropertyWithMethod(String propertyName , List<?> values ) ;
 	void update(T instance);
 	/**
 	 * 批量更新属性值
@@ -44,6 +51,13 @@ public interface BaseDao<T> {
 	 * @return
 	 */
 	Page findByProperties(int currentPage , Map<String , String> params ) ;
+	/**
+	 * 查询单属性propertyName在values集合中的所有对象
+	 * @param propertyName
+	 * @param values
+	 * @return
+	 */
+	List findByProperties(String propertyName , List<?> values ) ;
 	Object uniqueResult(final String hql,final Object... paras);
 	List findByHql(String hql,Object... paras);
 	Integer executeByHql(final String hql,final Object... paras);
