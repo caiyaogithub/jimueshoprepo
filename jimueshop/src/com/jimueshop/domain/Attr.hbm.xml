@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="property" default-lazy="true" package="com.jimueshop.domain">
 	<class name = "Attr" table="TAB_ATTR">
-		<id name = "id">
+		<id name = "id" column="ATTR_ID">
 			<generator class="native" />
 		</id>
 		<property name="attrName" column="ATTR_NAME" />

@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="property" default-lazy="true" package="com.jimueshop.domain">
 	<class name="SuperType" table="TAB_SUPERTYPE">
-		<id name = "id">
+		<id name = "id" column="SUPER_TYPE_ID">
 			<generator class="native" />
 		</id>
 		<property name="typeName" column="TYPE_NAME"/>

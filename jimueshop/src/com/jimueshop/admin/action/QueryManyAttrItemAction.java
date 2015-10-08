@@ -1,24 +1,25 @@
 package com.jimueshop.admin.action;
 
+import com.jimueshop.admin.service.AttrItemService;
 import com.jimueshop.admin.service.AttrService;
 import com.jimueshop.common.ActionResultInfo;
 import com.jimueshop.domain.Page;
 import com.opensymphony.xwork2.ActionSupport;
 /**
  * 
- * @description 通过小类id查询这个属性下的所有属性
+ * @description 通过属性id查询这个属性下的所有属性项
  *
  * @author hello world
  *
  * @modifyTime 2015年10月6日
  */
-public class QueryManyAttrAction extends ActionSupport {
+public class QueryManyAttrItemAction extends ActionSupport {
 	
-	private Integer subTypeId ;
+	private Integer attrId ;
 	
 	private Integer currentPage ;
 	
-	private AttrService attrService ;
+	private AttrItemService attrItemService ;
 	
 	private Page page ;
 	
@@ -27,7 +28,7 @@ public class QueryManyAttrAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 		
-		page = attrService.queryAttrBySubTypeId(currentPage, subTypeId) ;
+		page = attrItemService.queryAttrItemByAttrId(currentPage, attrId) ;
 		
 		result = ActionResultInfo.SUCCESS ;
 		
@@ -43,15 +44,15 @@ public class QueryManyAttrAction extends ActionSupport {
 		return result;
 	}
 
-	public void setSubTypeId(Integer subTypeId) {
-		this.subTypeId = subTypeId;
+	public void setAttrId(Integer attrId) {
+		this.attrId = attrId;
 	}
 
 	public void setCurrentPage(Integer currentPage) {
 		this.currentPage = currentPage;
 	}
 
-	public void setAttrService(AttrService attrService) {
-		this.attrService = attrService;
+	public void setAttrItemService(AttrItemService attrItemService) {
+		this.attrItemService = attrItemService;
 	}
 }

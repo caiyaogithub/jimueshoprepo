@@ -239,13 +239,14 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public void deleteByPropertyWithMethod(String propertyName, List values) {
 		
-		List<T> objects = findByProperties(propertyName, values) ;
+			List<T> objects = findByProperties(propertyName, values) ;
+			
+			for(T t : objects ){
+				
+				hibernateTemplate.delete(t) ;
+				
+			}
 		
-		for(T t : objects ){
-			
-			hibernateTemplate.delete(t) ;
-			
-		}
 	}
 	@Override
 	public void updateManyByProperty(String key , List<?> keySet , String propertyName,

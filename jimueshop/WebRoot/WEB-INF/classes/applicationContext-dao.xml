@@ -21,4 +21,6 @@
 	
 	<bean id="AttrDao" class="com.jimueshop.admin.dao.impl.AttrDaoImpl" parent="BaseDao" />
 	
+	<bean id="AttrItemDao" class="com.jimueshop.admin.dao.impl.AttrItemDaoImpl" parent="BaseDao" />
+	
 </beans>

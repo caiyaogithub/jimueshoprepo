@@ -29,4 +29,9 @@
 		<property name="attrDao" ref="AttrDao" />
 	</bean>
 	
+	<bean id="AttrItemService" class="com.jimueshop.admin.service.impl.AttrItemServiceImpl" >
+		<property name="attrItemDao" ref="AttrItemDao" />
+		<property name="attrDao" ref="AttrDao" />
+	</bean>
+	
 </beans>

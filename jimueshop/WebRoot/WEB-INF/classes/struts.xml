@@ -211,5 +211,22 @@
 		<action name="deleteAttr" class="DeleteAttrAction">
 		</action>
 		
+		<action name="addOrModifyAttrItem" class="AddOrModifyAttrItemAction">
+		</action>
+		
+		<action name="queryAttrItemByAttrId" class="QueryManyAttrItemAction">
+			<result name="success" type = "json">
+				<param name="includeProperties">
+					result , 
+					page.*
+				</param>
+				<param name="excludeProperties">
+					page.list\[\d+\].attr ,
+					page.list\[\d+\].products
+				</param>
+			</result>
+		</action>
+		
+		<action name="deleteAttrItem" class = "DeleteAttrItemAction"></action>
 	</package>
 </struts>

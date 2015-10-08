@@ -99,4 +99,16 @@
 		<property name="attrService" ref = "AttrService" />
 	</bean>
 	
+	<bean id = "AddOrModifyAttrItemAction" class="com.jimueshop.admin.action.AddOrModifyAttrItemAction" scope = "prototype">
+		<property name="attrItemService" ref = "AttrItemService" />
+	</bean>
+	
+	<bean id = "QueryManyAttrItemAction" class="com.jimueshop.admin.action.QueryManyAttrItemAction" scope = "prototype">
+		<property name="attrItemService" ref = "AttrItemService" />
+	</bean>
+	
+	<bean id = "DeleteAttrItemAction" class="com.jimueshop.admin.action.DeleteAttrItemAction" scope = "prototype">
+		<property name="attrItemService" ref = "AttrItemService" />
+	</bean>
+	
 </beans>

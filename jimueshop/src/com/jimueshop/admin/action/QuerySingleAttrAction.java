@@ -27,7 +27,8 @@ public class QuerySingleAttrAction extends ActionSupport {
 		
 		attr = attrService.queryAttrById(id) ;
 		
-		System.out.println(attr.getSubType().getSubTypeName());
+		//System.out.println(attr.getSubType().getSubTypeName()) ;
+		
 		result = ActionResultInfo.SUCCESS ;
 		
 		return SUCCESS ;
