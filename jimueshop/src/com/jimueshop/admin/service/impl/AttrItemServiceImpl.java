@@ -33,7 +33,7 @@ public class AttrItemServiceImpl implements AttrItemService {
 	}
 	@Override
 	public void deleteManyAttrItemByIds(List<Integer> ids) {
-		attrItemDao.deleteByPropertyWithHQL("id", ids ) ;
+		attrItemDao.deleteByPropertyWithMethod("id", ids ) ;
 	}
 	@Override
 	public Page querySomeAttrItemByProperties(int currentPage , Map<String, String> params) {
