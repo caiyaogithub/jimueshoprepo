@@ -1,14 +1,14 @@
 package com.jimueshop.admin.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import com.jimueshop.admin.dao.ProductDao;
-import com.jimueshop.admin.dao.SubTypeDao;
 import com.jimueshop.admin.service.ProductService;
-import com.jimueshop.domain.Product;
+import com.jimueshop.common.StringUtil;
 import com.jimueshop.domain.Page;
-import com.jimueshop.domain.SubType;
+import com.jimueshop.domain.Product;
 
 public class ProductServiceImpl implements ProductService {
 	
@@ -66,7 +66,38 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.getPageReady(currentPage, hql) ;
 		
 	}
-	
+	@Override
+	public Page queryProductByAttrItem(int currentPage , List<Integer> attrItemIds , Map<String , String > extraParams ) {
+		/*from Group as g  inner join g.persons as p  where p.name=?*/
+		String inClause = "" ;
+		for(Object o : attrItemIds ){
+			inClause += String.format("'%s',", o.toString()) ;
+		}
+		inClause = inClause.substring(0, inClause.lastIndexOf(",")) ;
+		
+		String whereClause = "" ;
+		if(extraParams != null ){
+			List<String> whereClauseList = new ArrayList<String>() ;
+			for(Map.Entry<String, String> entry : extraParams.entrySet() ){
+				String key = entry.getKey() ;
+				String value = entry.getValue() ;
+				int minPrice = Integer.valueOf(value.split("-")[0]) ;
+				int maxPrice = Integer.valueOf(value.split("-")[1]) ;
+				whereClauseList.add(String.format("(%s >= %d and %s <= %d)", key , minPrice , key , maxPrice )) ;
+			}
+			whereClause =" and " + StringUtil.concateWithChar(whereClauseList, " and ") ;
+		}
+		
+		String hql = 
+				String.format(
+						"from Product as p where (from AttrItem where id in (%s)) in elements(p.attrItems) %s " , 
+						inClause , whereClause ) ;
+		
+		System.out.println("queryProductByAttrItem hql : " + hql ) ;
+		
+		return productDao.getPageReady(currentPage, hql) ;
+		
+ 	}
 	public void setProductDao(ProductDao productDao) {
 		this.productDao = productDao ;
 	}

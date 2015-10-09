@@ -1,8 +1,17 @@
 package com.jimueshop.common;
 
+import java.util.List;
+
 
 public class StringUtil {
 	public static String concatWithChar(String[] source , String connector ){
+		String result = "" ;
+		for(String s : source ){
+			result += s + connector ;
+		}
+		return result.substring(0 , result.lastIndexOf(connector)) ;
+	}
+	public static String concateWithChar(List<String> source , String connector ){
 		String result = "" ;
 		for(String s : source ){
 			result += s + connector ;

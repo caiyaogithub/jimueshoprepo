@@ -3,8 +3,9 @@ package com.jimueshop.admin.service;
 import java.util.List;
 import java.util.Map;
 
-import com.jimueshop.domain.Product;
+import com.jimueshop.domain.AttrItem;
 import com.jimueshop.domain.Page;
+import com.jimueshop.domain.Product;
 
 public interface ProductService {
 	/**
@@ -59,5 +60,13 @@ public interface ProductService {
 	 * @return
 	 */
 	public Page queryProductBySubTypeId( int currentPage , int subTypeId ) ;
-	
+	/**
+	 * 根据属性查找商品列表
+	 * @param currentPage 要查询的当前页
+	 * @param attrItemIds 无需范围的属性: 在ATTR_ITEM表中存储的属性
+	 * @param extraParams 需要范围的属性: 例如价格范围，暂时还没有想到其他的属性
+	 * 					  格式： 键为属性名，例如"price"， 值为起始和结束属性值，例如：100-200
+	 * @return
+	 */
+	public Page queryProductByAttrItem(int currentPage , List<Integer> attrItemIds ,  Map<String , String> extraParams ) ;
 }

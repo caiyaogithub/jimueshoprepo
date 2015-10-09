@@ -3,9 +3,12 @@ package com.jimueshop.test;
 import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
@@ -18,6 +21,7 @@ import com.jimueshop.admin.service.ProductService;
 import com.jimueshop.admin.service.SubTypeService;
 import com.jimueshop.admin.service.SuperTypeService;
 import com.jimueshop.domain.AttrItem;
+import com.jimueshop.domain.Page;
 import com.jimueshop.domain.Product;
 import com.jimueshop.domain.SubType;
 import com.jimueshop.domain.SuperType;
@@ -147,5 +151,15 @@ public class ProductServiceImplTest {
 	public void testSetProductDao() {
 		fail("Not yet implemented");
 	}
-
+	@Test
+	public void testQueryProductByAttrItem(){
+		Map<String , String> extraParams = new HashMap<String, String>() ;
+		extraParams.put("price", "0-6") ;
+		Page page = productService.queryProductByAttrItem(1, new ArrayList<Integer>(Arrays.asList(50)),extraParams ) ;
+		
+		for(Object o : page.getList()){
+			Product p = (Product)o ;
+			System.out.println(p.getProductName()) ;
+		}
+	}
 }
