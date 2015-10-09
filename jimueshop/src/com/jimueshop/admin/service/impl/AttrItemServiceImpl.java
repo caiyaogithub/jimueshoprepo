@@ -41,11 +41,8 @@ public class AttrItemServiceImpl implements AttrItemService {
 	}
 	@Override
 	public void addAttrItem(AttrItem instance) {
-		
-		Attr attr = attrDao.findById(instance.getAttr().getId()) ;
-		
-		attr.getAttrItems().add(instance) ;
-		
+			Attr attr = attrDao.findById(instance.getAttr().getId()) ;
+			attr.getAttrItems().add(instance) ;
 		//attrItemDao.save(instance) ;
 	}
 	@Override

@@ -59,4 +59,5 @@ public interface ProductService {
 	 * @return
 	 */
 	public Page queryProductBySubTypeId( int currentPage , int subTypeId ) ;
+	
 }

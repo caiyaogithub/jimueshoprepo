@@ -10,9 +10,18 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.jimueshop.admin.service.AttrItemService;
+import com.jimueshop.admin.service.AttrService;
+import com.jimueshop.domain.Attr;
+import com.jimueshop.domain.AttrItem;
 
 public class AttrItemServiceImplTest {
-
+	
+	ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:/applicationContext-*.xml") ;
+	
+	AttrItemService attrItemService = (AttrItemService)ac.getBean("AttrItemService") ;
+	
+	AttrService attrService = (AttrService)ac.getBean("AttrService") ;
+	
 	@Test
 	public void testQueryAllAttrItemByPage() {
 		fail("Not yet implemented");
@@ -31,10 +40,6 @@ public class AttrItemServiceImplTest {
 	@Test
 	public void testDeleteManyAttrItemByIds() {
 		
-		ApplicationContext ac = new ClassPathXmlApplicationContext("classpath:/applicationContext-*.xml") ;
-		
-		AttrItemService attrItemService = (AttrItemService)ac.getBean("AttrItemService") ;
-		
 		attrItemService.deleteManyAttrItemByIds(new ArrayList<Integer>(Arrays.asList(13,14))) ;
 	}
 
@@ -45,7 +50,13 @@ public class AttrItemServiceImplTest {
 
 	@Test
 	public void testAddAttrItem() {
-		fail("Not yet implemented");
+			for(int i = 0 ; i < 10 ; i ++){
+				Attr attr = attrService.queryAttrById(36 + i ) ;
+				AttrItem attrItem = new AttrItem() ;
+				attrItem.setAttr(attr) ; 
+				attrItem.setValue("属性" + (i + 36 ) + "下的属性项" + i ) ;
+				attrItemService.addAttrItem(attrItem) ;
+			}
 	}
 
 	@Test

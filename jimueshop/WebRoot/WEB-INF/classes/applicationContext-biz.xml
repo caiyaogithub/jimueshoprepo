@@ -7,15 +7,15 @@
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd 
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
 
-	<bean id="userService" class="com.jimueshop.admin.service.impl.UserServiceImpl" >
+	<bean id="UserService" class="com.jimueshop.admin.service.impl.UserServiceImpl" >
 		<property name="userDao" ref="UserDao" />
 	</bean>
 	
-	<bean id="orderItemService" class="com.jimueshop.admin.service.impl.OrderItemServiceImpl" >
+	<bean id="OrderItemService" class="com.jimueshop.admin.service.impl.OrderItemServiceImpl" >
 		<property name="orderItemDao" ref="OrderItemDao" />
 	</bean>
 	
-	<bean id="superTypeService" class="com.jimueshop.admin.service.impl.SuperTypeServiceImpl" >
+	<bean id="SuperTypeService" class="com.jimueshop.admin.service.impl.SuperTypeServiceImpl" >
 		<property name="superTypeDao" ref="SuperTypeDao" />
 	</bean>
 	
@@ -32,6 +32,10 @@
 	<bean id="AttrItemService" class="com.jimueshop.admin.service.impl.AttrItemServiceImpl" >
 		<property name="attrItemDao" ref="AttrItemDao" />
 		<property name="attrDao" ref="AttrDao" />
+	</bean>
+	
+	<bean id="ProductService" class="com.jimueshop.admin.service.impl.ProductServiceImpl" >
+		<property name="productDao" ref="ProductDao" />
 	</bean>
 	
 </beans>

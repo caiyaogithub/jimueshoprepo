@@ -7,7 +7,7 @@
 		<id name = "id" column="ATTRITEM_ID">
 			<generator class="native" />
 		</id>
-		<many-to-one name="attr" class="Attr" column="ATTR_ID" cascade="all" lazy="false" />
+		<many-to-one name="attr" class="Attr" column="ATTR_ID" cascade="none" lazy="false" />
 		<property name="value" column="ATTRITEM_VALUE" />
 		<set name="products" table="TAB_PRODUCT_ATTRITEM" cascade="none" lazy="true">
 			<key column="ATTR_ITEM_ID" />
