@@ -38,9 +38,9 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.findByProperties(currentPage, params) ;
 	}
 	@Override
-	public void addProduct(Product instance) {
+	public int addProduct(Product instance) {
 		
-		productDao.save(instance) ;
+		return (Integer) productDao.save(instance) ;
 		
 	}
 	@Override

@@ -41,7 +41,7 @@ public interface ProductService {
 	 * 添加商品 
 	 * @param instance
 	 */
-	public void addProduct(Product instance ) ;
+	public int addProduct(Product instance ) ;
 	/**
 	 * 更新商品
 	 * @param instance

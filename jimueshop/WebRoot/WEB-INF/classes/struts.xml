@@ -106,7 +106,18 @@
 		</action>
 	</package>
 	<package name="product" namespace="/product" extends="json-default">
-	
+		<interceptors>
+			<interceptor-stack name="uploadInterceptor">
+	            <interceptor-ref name="fileUpload">  
+	                <param name="allowedTypes">
+	                	image/bmp,image/png,  
+	                    image/gif,image/jpeg
+	                </param>  
+	                <param name="maximumSize">2000000</param>   
+	            </interceptor-ref>   
+            	<interceptor-ref name="defaultStack"/>  
+			</interceptor-stack>
+		</interceptors>
 		<global-results>
 			<result name="error" type="json">
 				<param name="includeProperties">result</param>
@@ -228,5 +239,9 @@
 		</action>
 		
 		<action name="deleteAttrItem" class = "DeleteAttrItemAction"></action>
+		
+		<action name="addProduct" class = "AddProductAction">
+			<interceptor-ref name="uploadInterceptor" />
+		</action>
 	</package>
 </struts>

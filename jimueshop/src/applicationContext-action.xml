@@ -111,4 +111,8 @@
 		<property name="attrItemService" ref = "AttrItemService" />
 	</bean>
 	
+	<bean id = "AddProductAction" class="com.jimueshop.admin.action.AddProductAction" scope = "prototype">
+		<property name="productService" ref = "ProductService" />
+	</bean>
+	
 </beans>
