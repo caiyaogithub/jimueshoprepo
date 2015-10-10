@@ -44,7 +44,7 @@ public class SubTypeServiceImplTest {
 	@Test
 	public void testAddSubType() {
 		for(int i = 0 ; i < 10 ; i ++){
-			SuperType superType = superTypeService.querySuperTypeById(i + 16 ) ;
+			SuperType superType = superTypeService.querySuperTypeById(i+1 ) ;
 			SubType subType = new SubType() ;
 			subType.setSuperType(superType) ; 
 			subType.setSubTypeName("Ð¡Àà" + i ) ;

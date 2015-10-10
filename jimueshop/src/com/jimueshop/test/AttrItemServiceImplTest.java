@@ -51,10 +51,10 @@ public class AttrItemServiceImplTest {
 	@Test
 	public void testAddAttrItem() {
 			for(int i = 0 ; i < 10 ; i ++){
-				Attr attr = attrService.queryAttrById(36 + i ) ;
+				Attr attr = attrService.queryAttrById(22 + i ) ;
 				AttrItem attrItem = new AttrItem() ;
 				attrItem.setAttr(attr) ; 
-				attrItem.setValue("属性" + (i + 36 ) + "下的属性项" + i ) ;
+				attrItem.setValue("属性" + (i + 22 ) + "下的属性项" + i ) ;
 				attrItemService.addAttrItem(attrItem) ;
 			}
 	}

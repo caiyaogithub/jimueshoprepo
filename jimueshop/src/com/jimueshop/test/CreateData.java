@@ -23,7 +23,7 @@ public class CreateData {
 		//createOrderItem() ;
 		//createUser() ;
 		//createSuperType() ;
-		createAttr() ;
+		//createAttr() ;
 	}
 	public static void createAttr() throws Exception {
 

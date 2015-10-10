@@ -46,9 +46,9 @@ public class AttrServiceImplTest {
 	@Test
 	public void testAddAttr() {
 		for(int i = 0 ; i< 10 ; i ++ ){
-			SubType subType = subTypeService.querySubTypeById(i + 26 ) ;
+			SubType subType = subTypeService.querySubTypeById(i + 11 ) ;
 			Attr attr = new Attr() ;
-			attr.setAttrName("小类" + (i + 26) + "下的属性" + i ) ;
+			attr.setAttrName("小类" + (i + 11) + "下的属性" + i ) ;
 			attr.setAttrDesc("小类" + i + "的描述") ;
 			attr.setSubType(subType) ;
 			attrService.addAttr(attr) ;

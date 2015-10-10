@@ -70,12 +70,12 @@ public class ProductServiceImplTest {
 	@Test
 	public void testAddProduct() {
 		Random random = new Random() ;
-		/*for(int i = 0 ; i < 10 ; i ++){
-			SuperType superType = SuperTypeService.querySuperTypeById(i + 16 ) ;
-			SubType subType = SubTypeService.querySubTypeById(26 + i ) ;
+		for(int i = 0 ; i < 10 ; i ++){
+			SuperType superType = SuperTypeService.querySuperTypeById(i + 1) ;
+			SubType subType = SubTypeService.querySubTypeById(11 + i ) ;
 			Set<AttrItem> attrItems = new HashSet<AttrItem>() ;
-			AttrItem attrItem1 = AttrItemService.queryAttrItemById(generatorRandomInt(46,55)) ;
-			AttrItem attrItem2 = AttrItemService.queryAttrItemById(generatorRandomInt(46,55)) ;
+			AttrItem attrItem1 = AttrItemService.queryAttrItemById(generatorRandomInt(31,39)) ;
+			AttrItem attrItem2 = AttrItemService.queryAttrItemById(generatorRandomInt(31,39)) ;
 			attrItems.add(attrItem1) ;
 			attrItems.add(attrItem2) ;
 			
@@ -97,9 +97,9 @@ public class ProductServiceImplTest {
 			product.setAttrItems(attrItems) ;
 			productService.addProduct(product) ;
 			
-		}*/
+		}
 		
-		SuperType superType = new SuperType() ;
+	/*	SuperType superType = new SuperType() ;
 		superType.setId(1) ;
 		SubType subType = new SubType() ;
 		subType.setId(2) ;
@@ -127,7 +127,7 @@ public class ProductServiceImplTest {
 		product.setSubType(subType) ;
 		product.setSuperType(superType) ;
 		product.setAttrItems(attrItems) ;
-		productService.addProduct(product) ;
+		productService.addProduct(product) ;*/
 	}
 
 	@Test

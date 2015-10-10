@@ -20,7 +20,7 @@ public class QueryProductBySubType extends ActionSupport {
 	
 	private ProductService productService ;
 	
-	Page page ;
+	private Page page ;
 	
 	private String result = ActionResultInfo.PARAMS_ERROR ;
 

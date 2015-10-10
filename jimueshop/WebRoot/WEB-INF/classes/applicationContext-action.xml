@@ -115,4 +115,8 @@
 		<property name="productService" ref = "ProductService" />
 	</bean>
 	
+	<bean id = "QueryProductBySubType" class="com.jimueshop.admin.action.QueryProductBySubType" scope = "prototype">
+		<property name="productService" ref = "ProductService" />
+	</bean>
+	
 </beans>
