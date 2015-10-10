@@ -14,23 +14,20 @@ public class ImageUtils {
 	 * @param uploadImageFileName 上传图片的文件名
 	 * @throws IOException
 	 */
-	public static void writeImageToFile(File source, int productId , String uploadImageFileName)
+	public static void writeImageToFile(File source, String savePath )
 			throws IOException {
-		try{
-			// 判断存储该商品的文件夹是否存在
-			String savePath = Constraint.SAVE_PATH + "/" + productId ;
-
-			File file = new File(savePath);
-
-			if (!file.exists()) {
-
-				file.mkdir();
-
-			}
-
-			FileUtils.copyFile(source, new File(savePath + "/" + UUID.randomUUID() + uploadImageFileName )) ;
-		}catch(Exception e ){e.printStackTrace();}
 		
-
+		String parentFolder = savePath.substring(0,savePath.lastIndexOf("/")) + "/" ;
+		
+		File parentFolderFile = new File(parentFolder) ;
+		
+		if(!parentFolderFile.exists()){
+			
+			parentFolderFile.mkdir() ;
+			
+		}
+		
+		FileUtils.copyFile(source, new File(savePath)) ;
+		
 	}
 }

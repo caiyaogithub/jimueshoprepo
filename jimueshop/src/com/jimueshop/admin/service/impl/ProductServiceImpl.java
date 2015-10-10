@@ -38,9 +38,9 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.findByProperties(currentPage, params) ;
 	}
 	@Override
-	public int addProduct(Product instance) {
+	public void addProduct(Product instance) {
 		
-		return (Integer) productDao.save(instance) ;
+		 productDao.save(instance) ;
 		
 	}
 	@Override
@@ -68,7 +68,6 @@ public class ProductServiceImpl implements ProductService {
 	}
 	@Override
 	public Page queryProductByAttrItem(int currentPage , List<Integer> attrItemIds , Map<String , String > extraParams ) {
-		/*from Group as g  inner join g.persons as p  where p.name=?*/
 		String inClause = "" ;
 		for(Object o : attrItemIds ){
 			inClause += String.format("'%s',", o.toString()) ;

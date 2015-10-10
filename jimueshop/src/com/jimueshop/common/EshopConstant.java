@@ -7,7 +7,7 @@ package com.jimueshop.common;
  *
  * @modifyTime 2015Äê10ÔÂ10ÈÕ
  */
-public class Constraint {
+public class EshopConstant {
 	
 	public static final String IMG_PATH="http://127.0.0.1:8080/IMG/images/";
 	

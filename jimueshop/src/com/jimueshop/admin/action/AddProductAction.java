@@ -8,6 +8,8 @@ import java.util.UUID;
 import com.jimueshop.admin.service.ProductService;
 import com.jimueshop.common.ActionResultInfo;
 import com.jimueshop.common.Convertor;
+import com.jimueshop.common.DateTimeUtil;
+import com.jimueshop.common.EshopConstant;
 import com.jimueshop.common.ImageUtils;
 import com.jimueshop.domain.AttrItem;
 import com.jimueshop.domain.Product;
@@ -36,18 +38,18 @@ public class AddProductAction extends ActionSupport {
 	
 	@Override
 	public String execute() throws Exception {
-		/**
-		 * 先将图片名存入product对象中，在将图片文件写入文件
-		 */
+		
 		product.setAttrItems(Convertor.ListToSet(attrItems)) ;
 		
-		String pictureName = UUID.randomUUID().toString() + uploadImageFileName ;
+		String relativePath = DateTimeUtil.getCurrentDate() + "/" + UUID.randomUUID().toString() + uploadImageFileName ;
 		
-		product.setPicturePath(pictureName) ;
+		String savePath = EshopConstant.SAVE_PATH + "/" + relativePath ;
 		
-		int productId = productService.addProduct(product) ;
+		ImageUtils.writeImageToFile( uploadImage , savePath ) ;
 		
-		ImageUtils.writeImageToFile(uploadImage, productId , pictureName ); // 图片存储文件夹为Constraint.SAVE_PATH指定的文件夹下再加上商品id文件夹
+		product.setPicturePath(EshopConstant.IMG_PATH + relativePath ) ;
+		
+		productService.addProduct(product) ;
 		
 		result = ActionResultInfo.SUCCESS ;
 		
