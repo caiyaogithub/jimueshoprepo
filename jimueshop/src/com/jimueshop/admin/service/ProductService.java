@@ -69,4 +69,10 @@ public interface ProductService {
 	 * @return
 	 */
 	public Page queryProductByAttrItem(int currentPage , List<Integer> attrItemIds ,  Map<String , String> extraParams ) ;
+	/**
+	 * 改变商品图片路径
+	 * @param productId 商品id
+	 * @param newPicturePath 新的图片路径
+	 */
+	public void changeProductImgPath(int productId , String newPicturePath ) ;
 }

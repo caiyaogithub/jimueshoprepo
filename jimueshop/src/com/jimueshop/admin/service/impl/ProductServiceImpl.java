@@ -103,6 +103,13 @@ public class ProductServiceImpl implements ProductService {
 		
 		return productDao.getPageReady(currentPage, hql) ;
  	}
+	@Override
+	public void changeProductImgPath(int productId, String newPicturePath) {
+		
+		Product product = productDao.findById(productId) ;
+		
+		product.setPicturePath(newPicturePath) ;
+	}
 	public void setProductDao(ProductDao productDao) {
 		this.productDao = productDao ;
 	}

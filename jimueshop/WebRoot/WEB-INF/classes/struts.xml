@@ -310,5 +310,9 @@
 		</action>
 		<action name="modifyProduct" class = "ModifyProductAction">
 		</action>
+		<action name="changeProductPicture" class = "ChangeProductPictureAction">
+		</action>
+		<action name="deleteProduct" class = "DeleteProductAction">
+		</action>
 	</package>
 </struts>

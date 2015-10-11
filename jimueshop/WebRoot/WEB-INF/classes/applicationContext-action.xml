@@ -132,4 +132,13 @@
 		<property name="productService" ref = "ProductService" />
 	</bean>
 	
+	
+	<bean id = "ChangeProductPictureAction" class="com.jimueshop.admin.action.ChangeProductPictureAction" scope = "prototype">
+		<property name="productService" ref = "ProductService" />
+	</bean>
+	
+	<bean id = "DeleteProductAction" class="com.jimueshop.admin.action.DeleteProductAction" scope = "prototype">
+		<property name="productService" ref = "ProductService" />
+	</bean>
+	
 </beans>
