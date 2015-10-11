@@ -7,7 +7,8 @@
 <title>添加商品</title>
 </head>
 <body>
-	<form action="product/addProduct" method = "post" enctype="multipart/form-data" >
+	<form action="product/modifyProduct" method = "post" enctype="multipart/form-data" >
+		<input type = "text" value = "58" name = "product.id" />
 		<input type = "text" value = "1" name = "product.superType.id" /><br/>
 		<input type ="text" value = "11" name = "product.subType.id"  /><br/>
 		<input type = "text" value = "LG" name = "product.brand"  /><br/>
@@ -15,16 +16,15 @@
 		<input type = "text" value ="这是一款非智能触屏手机" name = "product.introduce"/><br/>
 		<input type = "text" value ="700" name = "product.price"/><br/>　 
 		<input type = "text" value ="1000" name = "product.nowPrice"/><br/>　 
-		<input type = "file" name = "uploadImage" /><br/>　 
 		<input type = "text" value ="2012-03-01" name = "product.inTime"/><br/>　 
 		<input type = "text" value ="true" name = "product.isNew"/><br/>　 
 		<input type = "text" value ="true" name = "product.isSale"/><br/>　 
 		<input type = "text" value ="true" name = "product.isHost"/><br/>　 
 		<input type = "text" value ="true" name = "product.isSpecial"/><br/>　 
 		<input type = "text" value ="10" name = "product.productNum"/><br/>　 
-		<input type = "text" value ="31" name = "attrItems[0].id"/><br/>　 
-		<input type = "text" value ="32" name = "attrItems[1].id"/><br/>　 
-		<input type = "text" value ="33" name = "attrItems[2].id"/><br/>　 
+		<input type = "text" value ="39" name = "attrItems[0].id"/><br/>　 
+		<input type = "text" value ="38" name = "attrItems[1].id"/><br/>　 
+		<input type = "text" value ="37" name = "attrItems[2].id"/><br/>　 
 		<input type = "submit" value = "提交" />
 	</form>
 </body>	

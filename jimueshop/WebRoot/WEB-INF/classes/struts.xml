@@ -308,5 +308,7 @@
 				</param>
 			</result>
 		</action>
+		<action name="modifyProduct" class = "ModifyProductAction">
+		</action>
 	</package>
 </struts>

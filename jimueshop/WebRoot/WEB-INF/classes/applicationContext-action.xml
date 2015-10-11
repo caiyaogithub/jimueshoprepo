@@ -127,4 +127,9 @@
 		<property name="productService" ref = "ProductService" />
 	</bean>
 	
+	
+	<bean id = "ModifyProductAction" class="com.jimueshop.admin.action.ModifyProductAction" scope = "prototype">
+		<property name="productService" ref = "ProductService" />
+	</bean>
+	
 </beans>
