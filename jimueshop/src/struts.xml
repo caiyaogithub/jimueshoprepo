@@ -288,5 +288,25 @@
 				</param>
 			</result>
 		</action>
+		<action name="querySingleProduct" class = "QuerySingleProductAction">
+			<result name = "success" type = "json">
+				<param name="includeProperties">
+					result,product.*
+				</param>
+				<param name="excludeProperties">
+					product.superType.subTypes,
+					product.superType.products,
+					product.subType.superType,
+					product.subType.attrs,
+					product.subType.products,
+					product.subType.ads,
+					product.ad.subType,
+					product.ad.product,
+					product.comments\[\d+\].product,
+					product.attrItems\[\d+\].attr,
+					product.attrItems\[\d+\].products
+				</param>
+			</result>
+		</action>
 	</package>
 </struts>

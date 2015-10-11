@@ -19,14 +19,14 @@
 		<property name="isHost" column="IS_HOST" />
 		<property name="isSpecial" column="IS_SPECIAL" />
 		<property name="productNum" column="PRODUCT_NUM" />
-		<many-to-one name="superType" class="SuperType" column="SUPERTYPE_ID"  cascade="none" />
-		<many-to-one name="subType" class="SubType" column="SUBTYPE_ID" cascade="none" />
-		<one-to-one name="ad" class="Ad" cascade="all" />
-		<set name="comments" table="TAB_COMMENT"  cascade="all">
+		<many-to-one name="superType" class="SuperType" column="SUPERTYPE_ID"  cascade="none" lazy = "false"/>
+		<many-to-one name="subType" class="SubType" column="SUBTYPE_ID" cascade="none" lazy = "false"/>
+		<one-to-one name="ad" class="Ad" cascade="all" lazy = "false"/>
+		<set name="comments" table="TAB_COMMENT"  cascade="all" lazy = "false">
 			<key column="PRODUCT_ID" />
 			<one-to-many class="Comment" />
 		</set>
-		<set name="attrItems" table = "TAB_PRODUCT_ATTRITEM" cascade="none">
+		<set name="attrItems" table = "TAB_PRODUCT_ATTRITEM" cascade="none" lazy = "false">
 			<key column="PRODUCT_ID" />
 			<many-to-many class="AttrItem" column="ATTR_ITEM_ID" />
 		</set>

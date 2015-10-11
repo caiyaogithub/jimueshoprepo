@@ -123,4 +123,8 @@
 		<property name="productService" ref = "ProductService" />
 	</bean>
 	
+	<bean id = "QuerySingleProductAction" class="com.jimueshop.admin.action.QuerySingleProductAction" scope = "prototype">
+		<property name="productService" ref = "ProductService" />
+	</bean>
+	
 </beans>
