@@ -184,7 +184,7 @@ public class ProductServiceImplTest {
 	public void testQueryProductByAttrItem(){
 		Map<String , String> extraParams = new HashMap<String, String>() ;
 		extraParams.put("price", "0-6") ;
-		Page page = productService.queryProductByAttrItem(1, new ArrayList<Integer>(Arrays.asList(50)),extraParams ) ;
+		Page page = productService.queryProductByAttrItem(3, new ArrayList<Integer>(Arrays.asList(31,32)),extraParams ) ;
 		
 		for(Object o : page.getList()){
 			Product p = (Product)o ;

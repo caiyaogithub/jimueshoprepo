@@ -244,7 +244,29 @@
 			<interceptor-ref name="uploadInterceptor" />
 		</action>
 		
-		<action name="queryProductBySubType" class = "QueryProductBySubType">
+		<action name="queryManyProductBySubType" class = "QueryManyProductBySubType">
+			<result name = "success" type = "json">
+				<param name="includeProperties">
+					result,page.*
+				</param>
+				<param name="excludeProperties">
+					page.list\[\d+\].superType,
+					page.list\[\d+\].subType,
+					page.list\[\d+\].price,
+					page.list\[\d+\].nowPrice,
+					page.list\[\d+\].picturePath,
+					page.list\[\d+\].inTime,
+					page.list\[\d+\].isNew,
+					page.list\[\d+\].isSale,
+					page.list\[\d+\].isHost,
+					page.list\[\d+\].isSpecial,
+					page.list\[\d+\].ad,
+					page.list\[\d+\].attrItems,
+					page.list\[\d+\].comments
+				</param>
+			</result>
+		</action>
+		<action name="queryManyProductByAttrItem" class = "QueryManyProductByAttrItem">
 			<result name = "success" type = "json">
 				<param name="includeProperties">
 					result,page.*

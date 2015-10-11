@@ -68,34 +68,40 @@ public class ProductServiceImpl implements ProductService {
 	}
 	@Override
 	public Page queryProductByAttrItem(int currentPage , List<Integer> attrItemIds , Map<String , String > extraParams ) {
-		String inClause = "" ;
-		for(Object o : attrItemIds ){
-			inClause += String.format("'%s',", o.toString()) ;
+		/*from Product as p 
+		where 
+		((from AttrItem where id in ('32')) in elements(p.attrItems))  
+		and
+		(from AttrItem where id in ('31')) in elements(p.attrItems)  
+		and 
+		(price >= 0 and price <= 6) 
+		and
+		(x >= 0 and x <= 6)*/
+		
+		String baseHql = "from Product as p " ;
+		/*************AttrItem筛选条件HQL子句**************/
+		String attrItemHql = "" ;
+		for(int id : attrItemIds){
+			attrItemHql += String.format("((from AttrItem where id in ('%d')) in elements(p.attrItems))", id ) + " and " ;
 		}
-		inClause = inClause.substring(0, inClause.lastIndexOf(",")) ;
-		
-		String whereClause = "" ;
-		if(extraParams != null ){
-			List<String> whereClauseList = new ArrayList<String>() ;
-			for(Map.Entry<String, String> entry : extraParams.entrySet() ){
-				String key = entry.getKey() ;
-				String value = entry.getValue() ;
-				int minPrice = Integer.valueOf(value.split("-")[0]) ;
-				int maxPrice = Integer.valueOf(value.split("-")[1]) ;
-				whereClauseList.add(String.format("(%s >= %d and %s <= %d)", key , minPrice , key , maxPrice )) ;
-			}
-			whereClause =" and " + StringUtil.concateWithChar(whereClauseList, " and ") ;
+		attrItemHql = attrItemHql.substring(0 , attrItemHql.lastIndexOf("and")) ;
+		/************非AttrItem筛选条件HQL子句*************/
+		String extraConditionHql = "" ;
+		for(Map.Entry<String, String> entry : extraParams.entrySet() ){
+			extraConditionHql += 
+					String.format("(%s >= %d and %s <= %d)",
+					entry.getKey(),
+					Integer.parseInt(entry.getValue().split("-")[0]),
+					entry.getKey(),
+					Integer.parseInt(entry.getValue().split("-")[1])) + " and " ;
 		}
-		
-		String hql = 
-				String.format(
-						"from Product as p where (from AttrItem where id in (%s)) in elements(p.attrItems) %s " , 
-						inClause , whereClause ) ;
-		
-		System.out.println("queryProductByAttrItem hql : " + hql ) ;
+		extraConditionHql = extraConditionHql.substring(0, extraConditionHql.lastIndexOf("and")) ;
+		/***************最终HQL拼装********************/
+		String hql = baseHql + (attrItemHql.equals("")?"":" where "+attrItemHql) 
+							 + (attrItemHql.equals("")?(extraConditionHql.equals("")?"":" where "+extraConditionHql):(extraConditionHql.equals("")?"":"and"+extraConditionHql)) ;
+		System.out.println("queryProductByAttrItem hql is : " + hql ) ; 
 		
 		return productDao.getPageReady(currentPage, hql) ;
-		
  	}
 	public void setProductDao(ProductDao productDao) {
 		this.productDao = productDao ;

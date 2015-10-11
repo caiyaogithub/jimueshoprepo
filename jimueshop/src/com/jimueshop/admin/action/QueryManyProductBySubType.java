@@ -12,7 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  * @modifyTime 2015Äê10ÔÂ10ÈÕ
  */
-public class QueryProductBySubType extends ActionSupport {
+public class QueryManyProductBySubType extends ActionSupport {
 	
 	private Integer subTypeId ;
 	
