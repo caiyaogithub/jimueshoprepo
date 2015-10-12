@@ -169,4 +169,12 @@
 		<property name="adService" ref = "AdService" />
 	</bean>
 	
+	<bean id = "QueryManyCommentAction" class="com.jimueshop.admin.action.QueryManyCommentAction" scope = "prototype">
+		<property name="commentService" ref = "CommentService" />
+	</bean>
+	
+	<bean id = "ReplyCommentAction" class="com.jimueshop.admin.action.ReplyCommentAction" scope = "prototype">
+		<property name="commentService" ref = "CommentService" />
+	</bean>
+	
 </beans>

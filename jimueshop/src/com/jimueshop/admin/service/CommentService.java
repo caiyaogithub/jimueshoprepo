@@ -38,4 +38,10 @@ public interface CommentService {
 	 * @param instance
 	 */
 	public void addComment(Comment instance ) ;
+	/**
+	 * 通过id查找评论
+	 * @param commentId
+	 * @return
+	 */
+	public Comment queryCommentById(int commentId ) ;
 }

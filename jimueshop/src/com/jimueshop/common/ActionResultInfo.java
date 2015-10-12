@@ -41,4 +41,12 @@ public interface ActionResultInfo {
 	 * 数据库中不存在该小类名
 	 */
 	String SUB_TYPE_NOTEXIST = "subTypeNotExist" ;
+	/**
+	 * 评论已经回复
+	 */
+	String COMMENT_ALREADY_REPLY = "commentAlreadyReply" ;
+	/**
+	 * 商品不存在
+	 */
+	String COMMENT_NOT_EXIST = "commentNotExist" ;
 }

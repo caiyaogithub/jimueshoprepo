@@ -26,6 +26,7 @@ public class CommentServiceImpl implements CommentService {
 	public void replyComment(int commentId, String replyContent) {
 		Comment comment = commentDao.findById(commentId) ;
 		comment.setReply(replyContent) ;
+		comment.setFlag("ÒÑ»Ø¸´") ;
 	}
 
 	public void setCommentDao(CommentDao commentDao) {
@@ -34,5 +35,9 @@ public class CommentServiceImpl implements CommentService {
 	@Override
 	public void addComment(Comment instance) {
 		commentDao.save(instance) ;
+	}
+	@Override
+	public Comment queryCommentById(int commentId) {
+		return commentDao.findById(commentId) ;
 	}
 }

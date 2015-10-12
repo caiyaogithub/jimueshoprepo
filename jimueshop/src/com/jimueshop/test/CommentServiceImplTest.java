@@ -64,11 +64,10 @@ public class CommentServiceImplTest {
 		Comment comment = new Comment() ;
 		comment.setProduct(product) ;
 		comment.setCommentDate(new Date()) ;
-		comment.setContent("这是对商品3的评论") ;
-		comment.setFlag("已回复") ;
-		comment.setTitle("好东西") ;
+		comment.setContent("这是对商品3新的评论") ;
+		comment.setFlag("未回复") ;
+		comment.setTitle("价格太贵") ;
 		comment.setUserName("caiyao") ;
-		comment.setReply("这是系统对评论的回复") ;
 		commentService.addComment(comment) ;
 	}
 }
