@@ -2,6 +2,8 @@ package com.jimueshop.domain;
 
 import java.util.Date;
 
+import org.apache.struts2.json.annotations.JSON;
+
 /**
  * 
  * @description 对应于数据库TAB_AD，存储广告信息
@@ -43,12 +45,14 @@ public class Ad {
 	public void setAdDesc(String adDesc) {
 		this.adDesc = adDesc;
 	}
+	@JSON(format="yyyy-MM-dd")
 	public Date getBeginTime() {
 		return beginTime;
 	}
 	public void setBeginTime(Date beginTime) {
 		this.beginTime = beginTime;
 	}
+	@JSON(format="yyyy-MM-dd")
 	public Date getEndTime() {
 		return endTime;
 	}

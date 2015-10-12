@@ -59,4 +59,10 @@ public interface AdService {
 	 * @param newAdPicturePath 新的广告图片路径
 	 */
 	public void changeAdImgPath(int adId , String newAdPicturePath ) ;
+	/**
+	 * 查询所有广告信息
+	 * @param currentPage
+	 * @return
+	 */
+	public Page findAllAdByPage(int currentPage ) ;
 }

@@ -153,4 +153,20 @@
 		<property name="adService" ref = "AdService" />
 	</bean>
 	
+	<bean id = "DeleteAdAction" class="com.jimueshop.admin.action.DeleteAdAction" scope = "prototype">
+		<property name="adService" ref = "AdService" />
+	</bean>
+	
+	<bean id = "QueryAllAdAction" class="com.jimueshop.admin.action.QueryAllAdAction" scope = "prototype">
+		<property name="adService" ref = "AdService" />
+	</bean>
+	
+	<bean id = "QueryManyAdBySubTypeAction" class="com.jimueshop.admin.action.QueryManyAdBySubTypeAction" scope = "prototype">
+		<property name="adService" ref = "AdService" />
+	</bean>
+	
+	<bean id = "QuerySingleAdAction" class="com.jimueshop.admin.action.QuerySingleAdAction" scope = "prototype">
+		<property name="adService" ref = "AdService" />
+	</bean>
+	
 </beans>

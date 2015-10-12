@@ -352,5 +352,49 @@
 		</action>
 		<action name="changeAdPicture" class = "ChangeAdPictureAction">
 		</action>
+		<action name="deleteAd" class = "DeleteAdAction">
+		</action>
+		<action name="queryAllAd" class = "QueryAllAdAction">
+			<result name = "success" type = "json">
+				<param name="includeProperties">
+					result,page.* 
+				</param>
+				<param name="excludeProperties">
+					page.list\[\d+\].subType,
+					page.list\[\d+\].product,
+					page.list\[\d+\].picturePath
+				</param>
+			</result>
+		</action>
+		<action name="queryManyAdBySubType" class = "QueryManyAdBySubTypeAction">
+			<result name = "success" type = "json">
+				<param name="includeProperties">
+					result,page.* 
+				</param>
+				<param name="excludeProperties">
+					page.list\[\d+\].subType,
+					page.list\[\d+\].product,
+					page.list\[\d+\].picturePath
+				</param>
+			</result>
+		</action>
+		<action name="querySingleAd" class = "QuerySingleAdAction">
+			<result name = "success" type = "json">
+				<param name="includeProperties">
+					result,ad.* 
+				</param>
+				<param name="excludeProperties">
+					ad.subType.superType,
+					ad.subType.attrs,
+					ad.subType.products,
+					ad.subType.ads,
+					ad.product.superType,
+					ad.product.subType,
+					ad.product.ad,
+					ad.product.comments,
+					ad.product.attrItems
+				</param>
+			</result>
+		</action>
 	</package>
 </struts>

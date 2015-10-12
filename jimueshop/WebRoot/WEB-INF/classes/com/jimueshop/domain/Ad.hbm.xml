@@ -12,7 +12,7 @@
 		<property name="endTime" column="END_TIME" />
 		<property name="picturePath" column="PICTURE_PATH" />
 		<property name="flag" column="FLAG" />
-		<many-to-one name="subType" class="SubType" column="SUBTYPE_ID" cascade="none" />
-		<many-to-one name="product" class="Product" column="PRODUCT_ID" cascade="none" unique="true" />
+		<many-to-one name="subType" class="SubType" column="SUBTYPE_ID" cascade="none" lazy = "false" />
+		<many-to-one name="product" class="Product" column="PRODUCT_ID" cascade="none" unique="true" lazy = "false"/>
 	</class> 
 </hibernate-mapping>

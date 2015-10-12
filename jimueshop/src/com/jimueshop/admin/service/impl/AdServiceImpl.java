@@ -60,6 +60,10 @@ public class AdServiceImpl implements AdService {
 		
 		ad.setPicturePath(newAdPicturePath) ;
 	}
+	@Override
+	public Page findAllAdByPage(int currentPage) {
+		return adDao.getPageReady(currentPage, "from Ad ") ;
+	}
 	public void setAdDao(AdDao adDao) {
 		this.adDao = adDao ;
 	}
