@@ -315,4 +315,42 @@
 		<action name="deleteProduct" class = "DeleteProductAction">
 		</action>
 	</package>
+	
+	<package name="ad" namespace="/ad" extends="json-default">
+		<interceptors>
+			<interceptor-stack name="uploadInterceptor">
+	            <interceptor-ref name="fileUpload">  
+	                <param name="allowedTypes">
+	                	image/bmp,image/png,  
+	                    image/gif,image/jpeg
+	                </param>  
+	                <param name="maximumSize">2000000</param>   
+	            </interceptor-ref>   
+            	<interceptor-ref name="defaultStack"/>  
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="error" type="json">
+				<param name="includeProperties">result</param>
+			</result>
+			<result name="success" type="json">
+				<param name="includeProperties">result</param>
+			</result>
+			<result name="failure" type="json">
+				<param name="includeProperties">result</param>
+			</result>
+			<result name="input" type="json">
+				<param name="includeProperties">result</param>
+			</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="java.lang.Exception" />
+		</global-exception-mappings>
+		<action name="addAd" class = "AddAdAction">
+		</action>
+		<action name="modifyAd" class = "ModifyAdAction">
+		</action>
+		<action name="changeAdPicture" class = "ChangeAdPictureAction">
+		</action>
+	</package>
 </struts>

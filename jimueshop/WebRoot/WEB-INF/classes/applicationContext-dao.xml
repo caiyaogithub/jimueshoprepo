@@ -26,4 +26,6 @@
 	
 	<bean id="ProductDao" class="com.jimueshop.admin.dao.impl.ProductDaoImpl" parent="BaseDao" />
 	
+	<bean id="AdDao" class="com.jimueshop.admin.dao.impl.AdDaoImpl" parent="BaseDao" />
+	
 </beans>

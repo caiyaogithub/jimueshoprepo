@@ -38,4 +38,8 @@
 		<property name="productDao" ref="ProductDao" />
 	</bean>
 	
+	<bean id="AdService" class="com.jimueshop.admin.service.impl.AdServiceImpl" >
+		<property name="adDao" ref="AdDao" />
+	</bean>
+	
 </beans>

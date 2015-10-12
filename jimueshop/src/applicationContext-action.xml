@@ -141,4 +141,16 @@
 		<property name="productService" ref = "ProductService" />
 	</bean>
 	
+	<bean id = "AddAdAction" class="com.jimueshop.admin.action.AddAdAction" scope = "prototype">
+		<property name="adService" ref = "AdService" />
+	</bean>
+	
+	<bean id = "ModifyAdAction" class="com.jimueshop.admin.action.ModifyAdAction" scope = "prototype">
+		<property name="adService" ref = "AdService" />
+	</bean>
+	
+	<bean id = "ChangeAdPictureAction" class="com.jimueshop.admin.action.ChangeAdPictureAction" scope = "prototype">
+		<property name="adService" ref = "AdService" />
+	</bean>
+	
 </beans>
