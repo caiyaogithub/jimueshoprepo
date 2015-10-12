@@ -52,7 +52,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public boolean checkProductNameExist(String productName) {
 		
-		if(productDao.findByProperty("productName", productName).size() != 0 ){
+		if(productDao.findByPropertyWithSingleValue("productName", productName).size() != 0 ){
 			return true ;
 		}else{
 			return false ;

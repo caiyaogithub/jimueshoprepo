@@ -46,7 +46,7 @@ public class SuperTypeServiceImpl implements SuperTypeService {
 	@Override
 	public boolean checkSuperTypeNameExist(String superTypeName) {
 		
-		if(superTypeDao.findByProperty("typeName", superTypeName).size() != 0 ){
+		if(superTypeDao.findByPropertyWithSingleValue("typeName", superTypeName).size() != 0 ){
 			return true ;
 		}else{
 			return false ;

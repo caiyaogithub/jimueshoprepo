@@ -17,6 +17,8 @@ public class Comment {
 	private Product product ;
 	private String content ;
 	private Date commentDate ;
+	private String reply ;
+	private String flag ;
 	public Integer getId() {
 		return id;
 	}
@@ -52,5 +54,17 @@ public class Comment {
 	}
 	public void setCommentDate(Date commentDate) {
 		this.commentDate = commentDate;
+	}
+	public String getReply() {
+		return reply;
+	}
+	public void setReply(String reply) {
+		this.reply = reply;
+	}
+	public String getFlag() {
+		return flag;
+	}
+	public void setFlag(String flag) {
+		this.flag = flag;
 	}
 }

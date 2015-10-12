@@ -59,7 +59,7 @@ public class SubTypeServiceImpl implements SubTypeService {
 	@Override
 	public boolean checkSubTypeNameExist(String subTypeName) {
 		
-		if(subTypeDao.findByProperty("subTypeName", subTypeName).size() != 0 ){
+		if(subTypeDao.findByPropertyWithSingleValue("subTypeName", subTypeName).size() != 0 ){
 			return true ;
 		}else{
 			return false ;

@@ -44,7 +44,7 @@ public interface BaseDao<T> {
 	 */
 	List<T> findByIds(List<Integer> ids ) ;
 	List<T> findAll();
-	List<T> findByProperty(String propertyName, Object value);
+	List<T> findByPropertyWithSingleValue(String propertyName, Object value);
 	/**
 	 * 通过多属性 模糊 查询结果
 	 * @param params 属性 名-值 对
@@ -57,7 +57,7 @@ public interface BaseDao<T> {
 	 * @param values
 	 * @return
 	 */
-	List findByProperties(String propertyName , List<?> values ) ;
+	List findByPropertyWithManyValues(String propertyName , List<?> values ) ;
 	Object uniqueResult(final String hql,final Object... paras);
 	List findByHql(String hql,Object... paras);
 	Integer executeByHql(final String hql,final Object... paras);

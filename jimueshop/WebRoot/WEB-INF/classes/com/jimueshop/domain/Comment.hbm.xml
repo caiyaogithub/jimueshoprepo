@@ -11,6 +11,8 @@
 		<property name="title" column="TITLE" />
 		<property name="content" column="COMMENT_CONTENT" />
 		<property name="commentDate" column="COMMENT_DATE" />
-		<many-to-one name="product" class="Product" column="PRODUCT_ID" cascade="all"/>
+		<property name="reply" column="COMMENT_REPLY" />
+		<property name="flag" column="COMMENT_FLAG" />
+		<many-to-one name="product" class="Product" column="PRODUCT_ID" cascade="none" lazy = "false"/>
 	</class>
 </hibernate-mapping>

@@ -115,7 +115,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	/**
 	 * 根据属性查找
 	 */
-	public List<T> findByProperty(String propertyName, Object value){
+	public List<T> findByPropertyWithSingleValue(String propertyName, Object value){
 		String hql = "from "+this.entityClass.getSimpleName()+" where "+propertyName+"=?";
 		List<T> list = hibernateTemplate.find(hql,value);
 		return list;
@@ -239,7 +239,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public void deleteByPropertyWithMethod(String propertyName, List values) {
 		
-			List<T> objects = findByProperties(propertyName, values) ;
+			List<T> objects = findByPropertyWithManyValues(propertyName, values) ;
 			
 			for(T t : objects ){
 				
@@ -285,10 +285,10 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 	@Override
 	public List<T> findByIds(List<Integer> ids) {
-		return findByProperties( "id" , ids ) ;
+		return findByPropertyWithManyValues( "id" , ids ) ;
 	}
 	@Override
-	public List findByProperties(String propertyName, List<?> values) {
+	public List findByPropertyWithManyValues(String propertyName, List<?> values) {
 		String inClause = "" ;
 		for(Object o : values ){
 			inClause += String.format("'%s',", o.toString()) ;

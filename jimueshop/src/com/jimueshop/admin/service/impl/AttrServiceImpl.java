@@ -60,7 +60,7 @@ public class AttrServiceImpl implements AttrService {
 	@Override
 	public boolean checkAttrNameExist(String attrName) {
 		
-		if(attrDao.findByProperty("attrName", attrName).size() != 0 ){
+		if(attrDao.findByPropertyWithSingleValue("attrName", attrName).size() != 0 ){
 			return true ;
 		}else{
 			return false ;

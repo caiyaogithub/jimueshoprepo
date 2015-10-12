@@ -28,4 +28,6 @@
 	
 	<bean id="AdDao" class="com.jimueshop.admin.dao.impl.AdDaoImpl" parent="BaseDao" />
 	
+	<bean id="CommentDao" class="com.jimueshop.admin.dao.impl.CommentDaoImpl" parent="BaseDao" />
+	
 </beans>

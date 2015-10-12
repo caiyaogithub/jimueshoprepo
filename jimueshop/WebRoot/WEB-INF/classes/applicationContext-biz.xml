@@ -42,4 +42,8 @@
 		<property name="adDao" ref="AdDao" />
 	</bean>
 	
+	<bean id="CommentService" class="com.jimueshop.admin.service.impl.CommentServiceImpl" >
+		<property name="commentDao" ref="CommentDao" />
+	</bean>
+	
 </beans>

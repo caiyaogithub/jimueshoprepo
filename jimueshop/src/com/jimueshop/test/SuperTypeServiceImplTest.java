@@ -40,11 +40,14 @@ public class SuperTypeServiceImplTest {
 
 	@Test
 	public void testAddSuperType() {
-		for(int i = 0 ; i < 10 ; i++ ){
+		/*for(int i = 0 ; i < 10 ; i++ ){
 			SuperType superType = new SuperType() ;
 			superType.setTypeName("大类" + i) ;
 			superTypeService.addSuperType(superType) ;
-		}
+		}*/
+		SuperType superType = new SuperType() ;
+		superType.setTypeName("大类1") ;
+		superTypeService.addSuperType(superType) ;
 	}
 
 	@Test
